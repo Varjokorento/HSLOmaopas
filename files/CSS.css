@@ -33,7 +33,7 @@ body {
 
 .form-control {
     margin: auto;
-    width: 50%;
+    width: 100%;
 }
 
 .container {
@@ -62,6 +62,6 @@ a {
 .panel{
     margin: auto;
     margin-bottom: 10px;
-    width: 50%
+    width: 100%
 }
 
