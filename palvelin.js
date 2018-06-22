@@ -162,11 +162,12 @@ app.set("views", __dirname + "/files");
 app.get("/", (req, res) =>  { res.render("index", { arvioitulahtoaika: lahtoaikaparsittuna, arvioitusaapumisaika: lahtoaikaparsittuna2}); });
 
 
-var server = app.listen(3000, function() {
-	var host = server.address().address
-	var port = server.address().port
-	console.log("Now listening at http://%s:%s", host, port)
-})
+app.set( 'port', ( process.env.PORT || 5000 ));
+
+// Start node server
+app.listen( app.get( 'port' ), function() {
+  console.log( 'Node server is running on port ' + app.get( 'port' ));
+  });
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
