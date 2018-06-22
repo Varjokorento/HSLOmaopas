@@ -1,7 +1,7 @@
 {
   "name": "hslappi",
   "version": "1.0.0",
-  "main": "JS.js",
+  "main": "palvelin.js",
   "dependencies": {
     "apollo-fetch": "^0.7.0",
     "body-parser": "^1.18.3",
