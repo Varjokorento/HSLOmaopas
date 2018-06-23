@@ -145,9 +145,12 @@ app.use(express.static('files'));
 
 app.set("view engine", "ejs"); 
 app.set("views", __dirname + "/files"); 
+ekaKutsu();
+tokakutsu();
 
 
 app.get("/", (req, res) =>  {
+    
 ekaKutsu();
 tokakutsu();    
 res.render("index", { arvioitulahtoaika: lahtoaika = lahtoaika, arvioitusaapumisaika: lahtoaika2}); });
