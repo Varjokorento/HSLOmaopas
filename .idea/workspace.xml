@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="80a4a988-1683-4dfe-8778-243ae4e00efe" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/JS.js" beforeDir="false" afterPath="$PROJECT_DIR$/files/JS.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/files/index.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/files/index.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/palvelin.js" beforeDir="false" afterPath="$PROJECT_DIR$/palvelin.js" afterDir="false" />
     </list>
@@ -19,8 +20,8 @@
       <file leaf-file-name="JS.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/files/JS.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="64" column="2" lean-forward="true" selection-start-line="64" selection-start-column="2" selection-end-line="64" selection-end-column="2" />
+            <state relative-caret-position="306">
+              <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -79,7 +80,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -97,6 +97,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -190,15 +191,16 @@
       <workItem from="1529667113343" duration="1788000" />
       <workItem from="1529669556168" duration="2471000" />
       <workItem from="1529751432711" duration="1065000" />
+      <workItem from="1529779102061" duration="348000" />
+      <workItem from="1529779514110" duration="915000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22792000" />
+    <option name="totallyTimeSpent" value="24055000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -237,6 +239,20 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/files/JS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/files/JS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="64" column="2" lean-forward="true" selection-start-line="64" selection-start-column="2" selection-end-line="64" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/files/JS.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="986">
@@ -319,8 +335,8 @@
     <entry file="file://$PROJECT_DIR$/files/index.html" />
     <entry file="file://$PROJECT_DIR$/files/JS.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="64" column="2" lean-forward="true" selection-start-line="64" selection-start-column="2" selection-end-line="64" selection-end-column="2" />
+        <state relative-caret-position="306">
+          <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
         </state>
       </provider>
     </entry>
