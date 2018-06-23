@@ -2,12 +2,18 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var graphqlHTTP = require('express-graphql');
-var { buildSchema } = require('graphql');
 var cors = require('cors')
-var fetchnorm = require('isomorphic-fetch');
 const { createApolloFetch } = require('apollo-fetch');
 var request = require("request");
 
+var lahtoaikaarvio = 0;
+var lahtoaikaReaali = 0;
+var lahtoaikatod = 0;
+var lahtoaikaparsittuna = 0;
+var lahtoaika = 0;
+var lahtoaika2 = 0;
+
+function ekaKutsu() {
 //eka kutsu
 var headers = {
     'Content-Type': 'application/graphql'
@@ -22,17 +28,12 @@ var options = {
     body: dataString
 };
 
-var data = "ei toimi";
-var lahtoaikaarvio = 0;
-var lahtoaikaReaali = 0;
-var lahtoaikatod = 0;
 
 function callback(error, response, body) {
     if (!error && response.statusCode == 200) {
         data = body;
         var parsittu = "";
         for (var t = 0; t < 150; t++) {
-
         parsittu += data[t];
         }
         lahtoaikaarvio = parsittu.substring(84, 89);
@@ -48,8 +49,7 @@ function callback(error, response, body) {
         if (lahtoaikatod["h"] < 10 && lahtoaikatod["m"] < 10) {
         lahtoaikaparsittuna = "0" + lahtoaikatod["h"] + ":" + "0" + lahtoaikatod["m"]
         }
-        
-        console.log(lahtoaikatod);
+        lahtoaika = lahtoaikaparsittuna;
         lahtoaikaReaali = parsittu.substring(108, 113);
         
     }
@@ -73,10 +73,12 @@ function secondsToTime(secs)
 }
 
 
-
 request(options, callback);
+}
+
 
 //tokakutsu 
+function tokakutsu() {
 
 var headers = {
     'Content-Type': 'application/graphql'
@@ -104,9 +106,8 @@ function callback2(error, response, body) {
 
         parsittu += data[t];
         }
-        console.log(parsittu)
+
         lahtoaikaarvio = parsittu.substring(90, 95);
-        console.log(lahtoaikaarvio)
         lahtoaikatod = secondsToTime(lahtoaikaarvio);
         if (lahtoaikatod["m"] < 10) {
         lahtoaikaparsittuna2 = lahtoaikatod["h"] + ":" + "0" + lahtoaikatod["m"];
@@ -119,8 +120,8 @@ function callback2(error, response, body) {
         if (lahtoaikatod["h"] < 10 && lahtoaikatod["m"] < 10) {
         lahtoaikaparsittuna2 = "0" + lahtoaikatod["h"] + ":" + "0" + lahtoaikatod["m"]
         }
-        
-        console.log(lahtoaikatod);
+        lahtoaika2 = lahtoaikaparsittuna2;
+    
        
         
     }
@@ -143,9 +144,10 @@ function secondsToTime(secs)
     return obj;
 }
 
-
 request(options2, callback2);
+}
 
+console.log(lahtoaika2);
 app.use(cors())
 
 /*app.get('/', function (req, res) {
@@ -159,7 +161,11 @@ app.use(express.static('files'));
 app.set("view engine", "ejs"); 
 app.set("views", __dirname + "/files"); 
 
-app.get("/", (req, res) =>  { res.render("index", { arvioitulahtoaika: lahtoaikaparsittuna, arvioitusaapumisaika: lahtoaikaparsittuna2}); });
+
+app.get("/", (req, res) =>  {
+ekaKutsu();
+tokakutsu();    
+res.render("index", { arvioitulahtoaika: lahtoaika = lahtoaika, arvioitusaapumisaika: lahtoaika2}); });
 
 
 app.set( 'port', ( process.env.PORT || 5000 ));
@@ -169,11 +175,6 @@ app.listen( app.get( 'port' ), function() {
   console.log( 'Node server is running on port ' + app.get( 'port' ));
   });
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 var app = express();
 
