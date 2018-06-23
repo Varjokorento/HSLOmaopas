@@ -32,11 +32,8 @@ var options = {
 function callback(error, response, body) {
     if (!error && response.statusCode == 200) {
         data = body;
-        var parsittu = "";
-        for (var t = 0; t < 150; t++) {
-        parsittu += data[t];
-        }
-        lahtoaikaarvio = parsittu.substring(84, 89);
+        var testi = JSON.parse(data);
+        lahtoaikaarvio = testi["data"]["stop"]["stoptimesWithoutPatterns"][1]["scheduledArrival"];
         lahtoaikatod = secondsToTime(lahtoaikaarvio);
         if (lahtoaikatod["m"] < 10) {
         lahtoaikaparsittuna = lahtoaikatod["h"] + ":" + "0" + lahtoaikatod["m"];
@@ -50,7 +47,6 @@ function callback(error, response, body) {
         lahtoaikaparsittuna = "0" + lahtoaikatod["h"] + ":" + "0" + lahtoaikatod["m"]
         }
         lahtoaika = lahtoaikaparsittuna;
-        lahtoaikaReaali = parsittu.substring(108, 113);
         
     }
 }
@@ -101,13 +97,8 @@ var lahtoaikatod2 = 0;
 function callback2(error, response, body) {
     if (!error && response.statusCode == 200) {
         data = body;
-        var parsittu = "";
-        for (var t = 0; t < 150; t++) {
-
-        parsittu += data[t];
-        }
-
-        lahtoaikaarvio = parsittu.substring(90, 95);
+        var testi = JSON.parse(data);
+        lahtoaikaarvio = testi["data"]["stop"]["stoptimesWithoutPatterns"][1]["scheduledArrival"];
         lahtoaikatod = secondsToTime(lahtoaikaarvio);
         if (lahtoaikatod["m"] < 10) {
         lahtoaikaparsittuna2 = lahtoaikatod["h"] + ":" + "0" + lahtoaikatod["m"];
@@ -120,10 +111,7 @@ function callback2(error, response, body) {
         if (lahtoaikatod["h"] < 10 && lahtoaikatod["m"] < 10) {
         lahtoaikaparsittuna2 = "0" + lahtoaikatod["h"] + ":" + "0" + lahtoaikatod["m"]
         }
-        lahtoaika2 = lahtoaikaparsittuna2;
-    
-       
-        
+        lahtoaika2 = lahtoaikaparsittuna2; 
     }
 }
 
@@ -147,12 +135,9 @@ function secondsToTime(secs)
 request(options2, callback2);
 }
 
-console.log(lahtoaika2);
+
 app.use(cors())
 
-/*app.get('/', function (req, res) {
-	res.send('Hello node with Express');
-})*/
 
 var parser = bodyParser.urlencoded({ extended: false });
 
